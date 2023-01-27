@@ -1,8 +1,11 @@
 #include <iostream>
 #include <fstream>
 
+//https://bakedbits.dev/posts/vulkan-compute-example/
+
+
 // Comment this to disable VMA support
-#define WITH_VMA
+//#define WITH_VMA
 
 #include <vulkan/vulkan.hpp>
 
@@ -187,7 +190,8 @@ int main()
 		vk::ComputePipelineCreateInfo ComputePipelineCreateInfo(vk::PipelineCreateFlags(),	// Flags
 																PipelineShaderCreateInfo,	// Shader Create Info struct
 																PipelineLayout);			// Pipeline Layout
-		vk::Pipeline ComputePipeline = Device.createComputePipeline(PipelineCache, ComputePipelineCreateInfo);
+
+		vk::Pipeline ComputePipeline = Device.createComputePipeline(PipelineCache, ComputePipelineCreateInfo).value;
 
 		vk::DescriptorPoolSize DescriptorPoolSize(vk::DescriptorType::eStorageBuffer, 2);
 		vk::DescriptorPoolCreateInfo DescriptorPoolCreateInfo(vk::DescriptorPoolCreateFlags(), 1, DescriptorPoolSize);

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(VulkanCompute)
+project(VulkanCompute_bakedbits)
 
 find_package(Vulkan REQUIRED)
 
@@ -13,7 +13,7 @@ add_custom_command(
 )
 add_custom_target(ComputeShader DEPENDS "${CMAKE_BINARY_DIR}/Square.spv")
 
-add_executable(VulkanCompute "main.cpp")
-target_link_libraries(VulkanCompute PRIVATE Vulkan::Vulkan)
-add_dependencies(VulkanCompute ComputeShader)
+add_executable(VulkanCompute_bakedbits "main.cpp")
+target_link_libraries(VulkanCompute_bakedbits PRIVATE Vulkan::Vulkan)
+add_dependencies(VulkanCompute_bakedbits ComputeShader)
 
